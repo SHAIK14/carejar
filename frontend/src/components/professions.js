@@ -1,4 +1,3 @@
-// src/components/Professions.js
 import React from "react";
 import { Link } from "react-router-dom";
 import Dentist from "./dentist";
@@ -10,13 +9,13 @@ const Professions = () => {
       <h1>Book an appointment for an in-clinic consultation</h1>
       <p>find exprienced doctors across all specalities</p>
       <div style={{ display: "flex", justifyContent: "space-around" }}>
-        <Link to="/dentist">
+        <Link to="/dental">
           <Dentist />
         </Link>
         <Link to="/gynecologist">
           <Gynecologist />
         </Link>
-        <Link to="/nutritionist">
+        <Link to="/nutrition">
           <Nutritionist />
         </Link>
       </div>

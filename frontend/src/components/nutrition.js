@@ -1,4 +1,3 @@
-// src/components/Nutritionist.js
 import React from "react";
 import nutrimg from "../assets/nutrion.jpeg";
 const Nutritionist = () => {

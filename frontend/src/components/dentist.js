@@ -1,4 +1,3 @@
-// src/components/Dentist.js
 import React from "react";
 import dentistImage from "../assets/dentist.jpeg";
 const Dentist = () => {

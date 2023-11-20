@@ -1,4 +1,3 @@
-// src/components/Gynecologist.js
 import React from "react";
 import gynocologistImg from "../assets/gyno.jpeg";
 
