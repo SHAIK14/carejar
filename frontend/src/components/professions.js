@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import Dentist from "./dentist";
 import Gynecologist from "./gynecologist";
 import Nutritionist from "./nutrition";
+import "./styles/professions.css";
 const Professions = () => {
   return (
-    <div>
+    <div className="main">
       <h1>Book an appointment for an in-clinic consultation</h1>
       <p>find exprienced doctors across all specalities</p>
-      <div style={{ display: "flex", justifyContent: "space-around" }}>
+      <div className="link-container">
         <Link to="/dental">
           <Dentist />
         </Link>

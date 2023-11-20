@@ -1,0 +1,29 @@
+/* Dentist.css */
+
+.dentist-container {
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  width: 250px;
+  height: 300px;
+}
+
+.dentist-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.dentist-container h2 {
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.dentist-container p {
+  color: #666;
+  font-size: 1em;
+}
