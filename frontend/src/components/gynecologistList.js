@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import "./styles/dentalList.css";
 const GynecologistList = () => {
   const [gynecologists, setGynecologists] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch gynecologist data from the backend API
         const response = await axios.get(
           "http://localhost:3001/api/gynecologists"
         );
@@ -21,27 +20,39 @@ const GynecologistList = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Gynecologist Doctors</h2>
-      <ul>
+    <div className="mainList">
+      <div className="sub">
         {gynecologists.map((gynecologist) => (
-          <li key={gynecologist.id}>
-            <img
-              src={`http://localhost:3001/images/${gynecologist.image}`}
-              alt={gynecologist.name}
-              style={{ width: "50px", height: "auto" }}
-            />
-            <h3>{gynecologist.name}</h3>
-            <p>{gynecologist.profession}</p>
-            <p>Experience: {gynecologist.experience}</p>
-            <p>Location: {gynecologist.location}</p>
-            <p>Clinic: {gynecologist.clinicName}</p>
-            <p>Consultation Fee: {gynecologist.consultationFee}</p>
-            <p>Rating: {gynecologist.rating}</p>
-            <p>Feedback: {gynecologist.feedback}</p>
-          </li>
+          <div className="content" key={gynecologist.id}>
+            <div className="imageclass">
+              <img
+                src={`http://localhost:3001/images/${gynecologist.image}`}
+                alt={gynecologist.name}
+              />
+            </div>
+            <div className="middle">
+              <div className="first">
+                <h3>{gynecologist.name}</h3>
+                <p>{gynecologist.profession}</p>
+                <p>Experience: {gynecologist.experience}</p>
+                <span className="location-info">
+                  <p className="bold-text"> {gynecologist.location}</p>
+                  <p> {gynecologist.clinicName}</p>
+                </span>
+                <p> {gynecologist.consultationFee}</p>
+              </div>
+              <span className="rating-feedback">
+                <p className="rating">{`Rating: ${gynecologist.rating}`}</p>
+                <p className="feedback">{gynecologist.feedback}</p>
+              </span>
+            </div>
+            <div className="appointment-section">
+              <p className="available-today-tag">Available Today</p>
+              <button className="book-appointment-btn">Book Appointment</button>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

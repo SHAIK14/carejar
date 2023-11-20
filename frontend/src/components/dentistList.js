@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import "./styles/dentalList.css";
 const DentistList = () => {
   const [dentists, setDentists] = useState([]);
 
@@ -18,27 +18,41 @@ const DentistList = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Dentist Doctors</h2>
-      <ul>
+    <div className="mainList">
+      <div className="sub">
         {dentists.map((dentist) => (
-          <li key={dentist.id}>
-            <img
-              src={`http://localhost:3001/images/${dentist.image}`}
-              alt={dentist.name}
-              style={{ width: "50px", height: "auto" }}
-            />
-            <h3>{dentist.name}</h3>
-            <p>{dentist.profession}</p>
-            <p>Experience: {dentist.experience}</p>
-            <p>Location: {dentist.location}</p>
-            <p>Clinic: {dentist.clinicName}</p>
-            <p>Consultation Fee: {dentist.consultationFee}</p>
-            <p>Rating: {dentist.rating}</p>
-            <p>Feedback: {dentist.feedback}</p>
-          </li>
+          <div className="content" key={dentist.id}>
+            <div className="imageclass">
+              <img
+                src={`http://localhost:3001/images/${dentist.image}`}
+                alt={dentist.name}
+                // style={{ width: "50px", height: "auto" }}
+              />
+            </div>
+            <div className="middle">
+              <div className="first">
+                <h3>{dentist.name}</h3>
+                <p>{dentist.profession}</p>
+                <p> {dentist.experience}</p>
+                <span className="location-info">
+                  <p className="bold-text">{dentist.location}</p>
+                  <p>{dentist.clinicName}</p>
+                </span>
+
+                <p> {dentist.consultationFee}</p>
+              </div>
+              <span className="rating-feedback">
+                <p className="rating">{`Rating: ${dentist.rating}`}</p>
+                <p className="feedback">{` ${dentist.feedback}`}</p>
+              </span>
+            </div>
+            <div className="appointment-section">
+              <p className="available-today-tag">Available Today</p>
+              <button className="book-appointment-btn">Book Appointment</button>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

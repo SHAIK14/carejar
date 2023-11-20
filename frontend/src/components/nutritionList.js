@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import "./styles/dentalList.css";
 const NutritionistList = () => {
   const [nutritionists, setNutritionists] = useState([]);
 
@@ -20,27 +20,39 @@ const NutritionistList = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Nutritionist Doctors</h2>
-      <ul>
+    <div className="mainList">
+      <div className="sub">
         {nutritionists.map((nutritionist) => (
-          <li key={nutritionist.id}>
-            <img
-              src={`http://localhost:3001/images/${nutritionist.image}`}
-              alt={nutritionist.name}
-              style={{ width: "50px", height: "auto" }}
-            />
-            <h3>{nutritionist.name}</h3>
-            <p>{nutritionist.profession}</p>
-            <p>Experience: {nutritionist.experience}</p>
-            <p>Location: {nutritionist.location}</p>
-            <p>Clinic: {nutritionist.clinicName}</p>
-            <p>Consultation Fee: {nutritionist.consultationFee}</p>
-            <p>Rating: {nutritionist.rating}</p>
-            <p>Feedback: {nutritionist.feedback}</p>
-          </li>
+          <div className="content" key={nutritionist.id}>
+            <div className="imageclass">
+              <img
+                src={`http://localhost:3001/images/${nutritionist.image}`}
+                alt={nutritionist.name}
+              />
+            </div>
+            <div className="middle">
+              <div className="first">
+                <h3>{nutritionist.name}</h3>
+                <p>{nutritionist.profession}</p>
+                <p>Experience: {nutritionist.experience}</p>
+                <span className="location-info">
+                  <p className="bold-text"> {nutritionist.location}</p>
+                  <p> {nutritionist.clinicName}</p>
+                </span>
+                <p>{nutritionist.consultationFee}</p>
+              </div>
+              <span className="rating-feedback">
+                <p className="rating">{`Rating: ${nutritionist.rating}`}</p>
+                <p className="feedback">{nutritionist.feedback}</p>
+              </span>
+            </div>
+            <div className="appointment-section">
+              <p className="available-today-tag">Available Today</p>
+              <button className="book-appointment-btn">Book Appointment</button>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
