@@ -8,7 +8,7 @@ const GynecologistList = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/api/gynecologists"
+          "https://carejar-gb6v.onrender.com/api/gynecologists"
         );
         setGynecologists(response.data);
       } catch (error) {
@@ -26,7 +26,7 @@ const GynecologistList = () => {
           <div className="content" key={gynecologist.id}>
             <div className="imageclass">
               <img
-                src={`http://localhost:3001/images/${gynecologist.image}`}
+                src={`https://carejar-gb6v.onrender.com/images/${gynecologist.image}`}
                 alt={gynecologist.name}
               />
             </div>

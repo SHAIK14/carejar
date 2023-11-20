@@ -8,7 +8,7 @@ const NutritionistList = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/api/nutritionists"
+          "https://carejar-gb6v.onrender.com/api/nutritionists"
         );
         setNutritionists(response.data);
       } catch (error) {
@@ -26,7 +26,7 @@ const NutritionistList = () => {
           <div className="content" key={nutritionist.id}>
             <div className="imageclass">
               <img
-                src={`http://localhost:3001/images/${nutritionist.image}`}
+                src={`https://carejar-gb6v.onrender.com/images/${nutritionist.image}`}
                 alt={nutritionist.name}
               />
             </div>

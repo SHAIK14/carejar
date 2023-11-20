@@ -7,7 +7,9 @@ const DentistList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/api/dentists");
+        const response = await axios.get(
+          "https://carejar-gb6v.onrender.com/api/dentists"
+        );
         setDentists(response.data);
       } catch (error) {
         console.error("Error fetching dentist data:", error);
@@ -24,7 +26,7 @@ const DentistList = () => {
           <div className="content" key={dentist.id}>
             <div className="imageclass">
               <img
-                src={`http://localhost:3001/images/${dentist.image}`}
+                src={`https://carejar-gb6v.onrender.com/images/${dentist.image}`}
                 alt={dentist.name}
                 // style={{ width: "50px", height: "auto" }}
               />
